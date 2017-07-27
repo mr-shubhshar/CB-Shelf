@@ -1,3 +1,4 @@
+
 """
 	mcb.pyw - Saves content from/on clipboard(CB) to a shelf file "mcbdata".
 	USAGE:	python mcb.pyw save <keyword>: saves data from CB to keyword.
@@ -6,6 +7,8 @@
 			python mcb.pyw delete all: deletes full database from shelf.
 			python mcb.pyw delete <keyword>: deletes keyword's data from shelf database.
 """
+
+#!usr/bin/python
 
 from sys import *
 import pyperclip, shelve
@@ -24,7 +27,7 @@ elif (len(argv) == 3) and (argv[1].lower() == 'delete'):
 	elif argv[2] in mcbshelf:
 		del mcbshelf[argv[2]]
 		print 'requested key has been deleted!'
-	else: 
+	else:
 		exit('No such key is there in the database/check your arguments')
 elif (len(argv) == 2) and (argv[1] == 'list'):
 	pyperclip.copy(str(list(mcbshelf.keys())))
